@@ -11,3 +11,9 @@ two:
   description: MyText
   image_url: MyString
   price: 9.99
+  
+coat: 
+  title:       Embroidered Trench Coat
+  description:  Embroidered flower<br> Open front<br> About me:<br> 100% polyester<br>
+  image_url:   1.jpg
+  price:       77.00
