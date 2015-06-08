@@ -32,19 +32,19 @@
 </div>	
 
   <div id="banner">
-   <!--> <%= image_tag("logo.png") %>
-    <%= @page_title || "Front Row Shop" %>-->
+    <%= image_tag("logo.png") %>
+    <%= @page_title || "Front Row Shop" %>
   </div>
   <div id="cart">
 
-    <!--> <% if @cart %>
+    <% if @cart %>
          <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
            <%= render @cart %>
          <% end %>
-       <% end %>-->
+       <% end %>
   </div>
   
-<!--><%= render Order.find(session[:order_id]) if session[:order_id] %>-->
+<!--<%= render Order.find(session[:order_id]) if session[:order_id] %>-->
 	
 <nav class="menu">
 	<ul>
