@@ -45,6 +45,12 @@ class ProductsControllerTest < ActionController::TestCase
     assert_redirected_to product_path(assigns(:product))
   end
   
+  test "should require login" do
+    logout
+    get :index
+    assert_redirected_to login_path
+  end
+  
   test "can't delete product in cart" do
     assert_difference('Product.count', 0) do
       delete :destroy, id: products(:coat)

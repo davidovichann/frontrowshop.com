@@ -29,6 +29,15 @@
 	<a href="../internet-store/structure/auth.html">Join</a>|
 	<a href="../internet-store/structure/entern.html">Sign In</a>|
 	<a href="../internet-store/structure/bag.html">My Bag ()</a>
+
+    <% if session[:user_id] %>
+      <ul>
+        <li><%= link_to 'Orders',   orders_path   %></li>
+        <li><%= link_to 'Products', products_path %></li>
+        <li><%= link_to 'Users',    users_path    %></li>
+      </ul>
+      <%= button_to 'Logout', logout_path, method: :delete   %>
+    <% end %>
 </div>	
 
   <div id="banner">
@@ -56,6 +65,7 @@
 		<li><a href="../controllers/beauty-show.html">BEAUTY SHOW</a></li>
 	</ul>
 </nav>
+
 
 <div id="main">
 <%= yield %>
