@@ -2,7 +2,7 @@
 <html>
 <head>
 	
-  <title>FRONT ROW SHOP - </title>
+  <title>WEEKEND  </title>
   <%= stylesheet_link_tag    "application", media: "all",
     "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
@@ -13,23 +13,16 @@
 <body class="<%= controller.controller_name %>">
 
 	<div class="up-menu">
-			<div class="search">
-			<form action="" method="POST">
-				<input type="search" value="Search">
-			</form>
+	
 		</div>
 </div>
 <div class="content">
-	<a href="../internet-store/structure/clothing/clothing-dress.html">DRESS</a>
-	<a href="../internet-store/structure/clothing/clothing-coat.html">COAT</a>
-	<a href="../internet-store/structure/clothing/clothing-skirt.html">SKIRT</a>
+	
 </div>
 <div class="entern">
-	<label>Welcome!</label>
-	<a href="../internet-store/structure/auth.html">Join</a>|
-	<a href="../internet-store/structure/entern.html">Sign In</a>|
-	<a href="../internet-store/structure/bag.html">My Bag ()</a>
-
+		<label>Welcome!</label>
+	
+	
     <% if session[:user_id] %>
       <ul>
         <li><%= link_to 'Orders',   orders_path   %></li>
@@ -41,8 +34,7 @@
 </div>	
 
   <div id="banner">
-    <%= image_tag("logo.png") %>
-    <%= @page_title || "Front Row Shop" %>
+    <%= @page_title || "WEEKEND" %>
   </div>
   <div id="cart">
     <% if @cart %>
@@ -51,19 +43,33 @@
         <% end %>
       <% end %>
   </div>
-    <%= render Order.find(session[:order_id]) if session[:order_id] -%>
+    
 
 	
+
 <nav class="menu">
 	<ul>
-		<li><a href="./">HOME</a></li>
-		<li><a href="../controllers/new.php">NEW IN</a></li>
-		<li><a href="../controllers/clothing.php">CLOTHING</a></li>
-		<li><a href="../controllers/accessories.html">ACCESSORIES</a></li>
-		<li><a href="../controllers/shoes.html">SHOES</a></li>
-		<li><a href="../controllers/collections.html">COLLECTION</a></li>
-		<li><a href="../controllers/beauty-show.html">BEAUTY SHOW</a></li>
+		<li><a href="/">HOME</a></li>
+			<li><%= link_to 'ABOUT',   '/about'   %></li>
+			<li><a href="/contacts">CONTACTS</a></li>
+			<li><%= link_to 'LIST',   '/store'   %></li>
+	
+		<% if session[:user_id ]%>
+		  
+           <li><%= link_to 'ORDERS',   orders_path   %></li>
+           <li><%= link_to 'PRODUCTS', products_path %></li>
+           <li><%= link_to 'USERS',    users_path    %></li>
+		   <li><%= link_to 'LOGOUT', logout_path, method: :delete   %></li>
+		
+	
+		<% end %>
+			<% if !session[:user_id]%>
+				<li><a href="/login">LOGIN</a></li>
+			
+			<% end %>
+		
 	</ul>
+
 </nav>
 
 

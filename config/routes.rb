@@ -1,7 +1,21 @@
 Rails.application.routes.draw do
+  get 'pages/home'
+
+  get 'pages/contact'
+  
+ #  get 'frontsnowshop.com' => 'pages/list'
+   root 'static_page#list', as: 'home', via: :all
+
+  get 'frontsnowshop.com' => 'static_page#list'
+
+  get 'about' => 'static_page#about'
+
+  get 'contacts' => 'static_page#contacts'
+
   get 'admin' => 'admin#index'
+
   controller :sessions do
-    get  'login' => :new
+   get  'login' => :new
     post 'login' => :create
     delete 'logout' => :destroy
   end
@@ -16,8 +30,8 @@ Rails.application.routes.draw do
     resources :orders
     resources :line_items
     resources :carts
-    get 'store/index'
-    root 'store#index', as: 'store', via: :all
+    get 'store' => 'store#index'
+  #  root 'store#index', as: 'store', via: :all
 
 
    
